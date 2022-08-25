@@ -1,6 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Controls.Generators;
 using Avalonia.Controls.Templates;
+using Avalonia.Styling;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,9 @@ namespace FluentAvalonia.UI.Controls
 		Type IItemContainerGenerator.ContainerType => null;
 
 		internal bool HasVirtualizingPanel { get; set; }
+        public ControlTheme ItemContainerTheme { get; set; }
 
-		public event EventHandler<ItemContainerEventArgs> Materialized;
+        public event EventHandler<ItemContainerEventArgs> Materialized;
 		public event EventHandler<ItemContainerEventArgs> Dematerialized;
 		public event EventHandler<ItemContainerEventArgs> Recycled;
 

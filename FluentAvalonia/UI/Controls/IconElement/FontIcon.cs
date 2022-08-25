@@ -9,9 +9,9 @@ namespace FluentAvalonia.UI.Controls
     /// Represents an icon that uses a glyph from the specified font.
     /// </summary>
     public partial class FontIcon : IconElement
-    {       
-		protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change)
-		{
+    {
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
             if (change.Property == TextBlock.ForegroundProperty ||
                 change.Property == TextBlock.FontSizeProperty ||
                 change.Property == TextBlock.FontFamilyProperty ||
@@ -22,10 +22,10 @@ namespace FluentAvalonia.UI.Controls
                 GenerateText();
             }
 
-            base.OnPropertyChanged(change);			
-		}
+            base.OnPropertyChanged(change);
+        }
 
-		protected override Size MeasureOverride(Size availableSize)
+        protected override Size MeasureOverride(Size availableSize)
         {
             if (_suspendCreate || _textLayout == null)
             {
@@ -33,7 +33,7 @@ namespace FluentAvalonia.UI.Controls
                 GenerateText();
             }
 
-            return _textLayout.Size;
+            return _textLayout.Bounds.Size;
         }
 
         public override void Render(DrawingContext context)
@@ -43,10 +43,10 @@ namespace FluentAvalonia.UI.Controls
 
             var dstRect = new Rect(Bounds.Size);
             using (context.PushClip(dstRect))
-            using (context.PushPreTransform(Matrix.CreateTranslation(dstRect.Center.X - _textLayout.Size.Width / 2,
-                dstRect.Center.Y - _textLayout.Size.Height / 2)))
+            using (context.PushPreTransform(Matrix.CreateTranslation(dstRect.Center.X - _textLayout.Bounds.Size.Width / 2,
+                dstRect.Center.Y - _textLayout.Bounds.Size.Height / 2)))
             {
-                _textLayout.Draw(context);
+                _textLayout.Draw(context, new Point(0, 0));
             }
         }
 

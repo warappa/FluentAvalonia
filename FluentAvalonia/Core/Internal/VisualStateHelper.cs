@@ -27,8 +27,8 @@ namespace FluentAvalonia.Core
         {
             if (args.Sender is StyledElement element)
             {
-                SetClasses(element, args.OldValue.GetValueOrDefault<string>(), false);
-                SetClasses(element, args.NewValue.GetValueOrDefault<string>(), true);
+                SetClasses(element, args.GetOldValue<string>(), false);
+                SetClasses(element, args.GetNewValue<string>(), true);
             }
         }
 

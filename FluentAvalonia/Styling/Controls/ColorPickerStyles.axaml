@@ -141,7 +141,7 @@
                                   Content="{TemplateBinding Content}"
                                   HorizontalContentAlignment="Center"
                                   VerticalContentAlignment="Center"
-                                  TextBlock.FontSize="16"
+                                  TextElement.FontSize="16"
                                   Padding="{TemplateBinding Padding}"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
@@ -234,7 +234,7 @@
                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                       TextBlock.FontFamily="{TemplateBinding FontFamily}"
-                                      TextBlock.FontSize="{TemplateBinding FontSize}"
+                                      TextElement.FontSize="{TemplateBinding FontSize}"
                                       TextBlock.FontWeight="{TemplateBinding FontWeight}"
                                       TextBlock.Foreground="{TemplateBinding Foreground}"
                                       CornerRadius="{TemplateBinding CornerRadius}"/>

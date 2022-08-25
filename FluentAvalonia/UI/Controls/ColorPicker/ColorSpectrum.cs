@@ -9,6 +9,7 @@ using FluentAvalonia.UI.Media;
 using System.Threading.Tasks;
 using FluentAvalonia.Core;
 using Avalonia.Media.Immutable;
+using Avalonia.Platform;
 
 namespace FluentAvalonia.UI.Controls
 {
@@ -46,7 +47,7 @@ namespace FluentAvalonia.UI.Controls
             {
                 if (Shape == ColorSpectrumShape.Spectrum)
                 {
-                    context.DrawImage(_tempBitmap, new Rect(_tempBitmap.Size), rect, Avalonia.Visuals.Media.Imaging.BitmapInterpolationMode.HighQuality);
+                    context.DrawImage(_tempBitmap, new Rect(_tempBitmap.Size), rect, BitmapInterpolationMode.HighQuality);
 
                     RenderSelectorRects(context, rect.Width, rect.Height);
 
@@ -69,7 +70,7 @@ namespace FluentAvalonia.UI.Controls
 					// Value by drawing a Black ellipse behind the image and the using the Value as the opacity
 					// to draw the bitmap
 					using (context.PushOpacity(Color.Valuef))
-						context.DrawImage(_tempBitmap, new Rect(_tempBitmap.Size), _lastWheelRect, Avalonia.Visuals.Media.Imaging.BitmapInterpolationMode.HighQuality);
+						context.DrawImage(_tempBitmap, new Rect(_tempBitmap.Size), _lastWheelRect, BitmapInterpolationMode.HighQuality);
 				}
 				else if (Shape == ColorSpectrumShape.Triangle)
                 {
@@ -81,7 +82,7 @@ namespace FluentAvalonia.UI.Controls
                         CreateBitmap();
                     }
 
-                    context.DrawImage(_tempBitmap, new Rect(_tempBitmap.Size), _lastWheelRect, Avalonia.Visuals.Media.Imaging.BitmapInterpolationMode.HighQuality);
+                    context.DrawImage(_tempBitmap, new Rect(_tempBitmap.Size), _lastWheelRect, BitmapInterpolationMode.HighQuality);
 
                     RenderTriangleSelector(context);
 				}
@@ -157,7 +158,7 @@ namespace FluentAvalonia.UI.Controls
             base.OnKeyDown(e);
         }
 
-		protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change)
+		protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
 		{
 			base.OnPropertyChanged(change);
 			if (change.Property == BorderBrushProperty ||
@@ -473,8 +474,9 @@ namespace FluentAvalonia.UI.Controls
         private void DrawWheelBitmap()
         {
             using (var dc = (_tempBitmap as RenderTargetBitmap).CreateDrawingContext(null))
-            using (var skDC = (dc as ISkiaDrawingContextImpl).SkCanvas)
+            using (var lease = dc.GetFeature<ISkiaSharpApiLeaseFeature>().Lease())
             {
+                var skDC = lease.SkCanvas;
                 SKRect rect = SKRect.Create(0, 0, _tempBitmap.PixelSize.Width, _tempBitmap.PixelSize.Height);
                 SKPoint center = new SKPoint(rect.MidX, rect.MidY);
                 float radius = (rect.Width / 2f) - ((float)WheelPadding / 2f);
@@ -519,8 +521,9 @@ namespace FluentAvalonia.UI.Controls
         private void DrawTriangleWheelBitmap()
         {
             using (var dc = (_tempBitmap as RenderTargetBitmap).CreateDrawingContext(null))
-            using (var skDC = (dc as ISkiaDrawingContextImpl).SkCanvas)
+            using (var lease = dc.GetFeature<ISkiaSharpApiLeaseFeature>().Lease())
             {
+                var skDC = lease.SkCanvas;
                 SKRect rect = SKRect.Create(0, 0, _tempBitmap.PixelSize.Width, _tempBitmap.PixelSize.Height);
                 SKPoint center = new SKPoint(rect.MidX, rect.MidY);
                 float radius = (rect.Width / 2f) - ((float)WheelPadding / 2f);

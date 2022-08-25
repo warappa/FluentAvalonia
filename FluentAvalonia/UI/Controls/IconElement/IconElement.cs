@@ -16,7 +16,7 @@ namespace FluentAvalonia.UI.Controls
         /// <summary>
         /// Defines the <see cref="Foreground"/> property
         /// </summary>
-        public static readonly AttachedProperty<IBrush> ForegroundProperty =
+        public static readonly StyledProperty<IBrush> ForegroundProperty =
             TextBlock.ForegroundProperty.AddOwner<IconElement>();
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace FluentAvalonia.UI.Controls
             set => SetValue(ForegroundProperty, value);
         }
 
-		protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change)
+		protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
 		{
 			base.OnPropertyChanged(change);
 

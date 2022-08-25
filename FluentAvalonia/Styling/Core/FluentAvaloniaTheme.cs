@@ -163,7 +163,7 @@ namespace FluentAvalonia.Styling
         public event EventHandler OwnerChanged;
         public event TypedEventHandler<FluentAvaloniaTheme, RequestedThemeChangedEventArgs> RequestedThemeChanged;
 
-        public SelectorMatchResult TryAttach(IStyleable target, IStyleHost host)
+        public SelectorMatchResult TryAttach(IStyleable target, object host)
         {
             if (_cache.TryGetValue(target.StyleKey, out var cached))
             {
