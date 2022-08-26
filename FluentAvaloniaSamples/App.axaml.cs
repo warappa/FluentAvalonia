@@ -15,9 +15,16 @@ namespace FluentAvaloniaSamples
 
         public override void OnFrameworkInitializationCompleted()
         {
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+    //        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+    //        {
+				//desktop.MainWindow = new MainWindow();
+    //        }
+    //        else
+            if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
             {
-				desktop.MainWindow = new MainWindow();
+                singleViewPlatform.MainView = new MainView
+                {
+                };
             }
 
             base.OnFrameworkInitializationCompleted();
