@@ -102,7 +102,7 @@
                                           Content="{TemplateBinding Header}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                          TextElement.FontFamily="{TemplateBinding FontFamily}"
                                           TextElement.FontSize="{TemplateBinding FontSize}"
                                           TextBlock.FontWeight="{TemplateBinding FontWeight}" />
                         <Border Name="PART_SelectedPipe"

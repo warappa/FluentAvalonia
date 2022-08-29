@@ -1,6 +1,7 @@
 ﻿using System.Reactive.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Documents;
 using Avalonia.Data;
 
 namespace FluentAvalonia.UI.Controls
@@ -13,7 +14,7 @@ namespace FluentAvalonia.UI.Controls
             {
                 [!TextBlock.FontWeightProperty] = fis[!TextBlock.FontWeightProperty],
                 [!TextBlock.FontStyleProperty] = fis[!TextBlock.FontStyleProperty],
-                [!TextBlock.FontFamilyProperty] = fis[!TextBlock.FontFamilyProperty],
+                [!TextElement.FontFamilyProperty] = fis[!TextElement.FontFamilyProperty],
                 [!TextBlock.FontSizeProperty] = fis[!TextBlock.FontSizeProperty],
                 [!FontIcon.GlyphProperty] = fis[!FontIconSource.GlyphProperty]
             };

@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Documents;
 using Avalonia.Media;
 
 namespace FluentAvalonia.UI.Controls
@@ -13,7 +14,7 @@ namespace FluentAvalonia.UI.Controls
         /// Defines the <see cref="FontFamily"/> property
         /// </summary>
         public static readonly StyledProperty<FontFamily> FontFamilyProperty =
-            TextBlock.FontFamilyProperty.AddOwner<FontIconSource>();
+            TextElement.FontFamilyProperty.AddOwner<FontIconSource>();
 
         /// <summary>
         /// Defines the <see cref="FontSize"/> property

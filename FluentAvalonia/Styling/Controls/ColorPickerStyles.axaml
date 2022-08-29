@@ -233,7 +233,7 @@
                                       VerticalAlignment="Stretch"
                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                      TextElement.FontFamily="{TemplateBinding FontFamily}"
                                       TextElement.FontSize="{TemplateBinding FontSize}"
                                       TextBlock.FontWeight="{TemplateBinding FontWeight}"
                                       TextBlock.Foreground="{TemplateBinding Foreground}"

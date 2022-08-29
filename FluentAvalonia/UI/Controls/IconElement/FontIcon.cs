@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Documents;
 using Avalonia.Media;
 using Avalonia.Media.TextFormatting;
 
@@ -14,7 +15,7 @@ namespace FluentAvalonia.UI.Controls
         {
             if (change.Property == TextBlock.ForegroundProperty ||
                 change.Property == TextBlock.FontSizeProperty ||
-                change.Property == TextBlock.FontFamilyProperty ||
+                change.Property == TextElement.FontFamilyProperty ||
                 change.Property == TextBlock.FontWeightProperty ||
                 change.Property == TextBlock.FontStyleProperty ||
                 change.Property == GlyphProperty)

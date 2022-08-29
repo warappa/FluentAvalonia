@@ -158,7 +158,7 @@
 										TextElement.FontWeight="Normal"
 										Margin="{DynamicResource TextBoxTopHeaderMargin}"
 										TextElement.FontSize="{TemplateBinding FontSize}"
-										TextBlock.FontFamily="{TemplateBinding FontFamily}"
+										TextElement.FontFamily="{TemplateBinding FontFamily}"
 										VerticalAlignment="Top"
 										IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}"/>
 
